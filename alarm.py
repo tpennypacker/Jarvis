@@ -11,8 +11,8 @@ os.system('clear')
 
 def playAlarm():
 	print('Good morning! Playing ' + alarm_settings.song)
-	song = AudioSegment.from_mp3(alarm_settings.song)
-	play(song)
+	# song = AudioSegment.from_mp3(alarm_settings.song)
+	# play(song)
 
 
 now = datetime.today()
@@ -22,7 +22,7 @@ then = now.replace(hour = alarm_settings.hour, minute = alarm_settings.minute, s
 if (now.hour > alarm_settings.hour):
 	then = then.replace(day = now.day + 1)
 
-
+print ('Setting alarm for ' + str(then))
 dt = then - now
 secs = dt.seconds + 1
 
