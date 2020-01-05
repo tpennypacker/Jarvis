@@ -1,5 +1,10 @@
 import os
 import requests
+import json
+import webbrowser
+import time
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 os.system('clear')
 
@@ -11,15 +16,40 @@ os.system('clear')
 # 	"scope":""
 # }
 
-user = 'trevorpennypacker'
-token = 'Bearer BQBdsO1jqWtw3eDkdfWJMUXKDIM0mRHluIphecDy08G4zGkhP8KBqhod_gPRFOIdM94__8yfBugJ_RefVsVaAyewni3NJSTQilX10HqsfKXEmhTLDMspMxRcpjHfz6TBDKAo_QuIfqsQhZDppZCJdRCnXFs'
-url = 'https://api.spotify.com/v1/shows/24HhxNTGC8dF4aJ63ofzrT/episodes?limit=1'
+# user = 'trevorpennypacker'
+# token = 'Bearer BQAMSkgc4Mt5exdlIMmDhF-q3FeIHPqvJUjZKD9as0djkE4KcRBQQNJbmDDuc5sWuTzkraztJXWr9YVMeCPMEp_Aa-F4vaOv7wyrcEZW1e_dP_DajjBJUBsYwWBW7Lda8h4JBqDGYskGrYtee4SQy3HkE4A'
+# url = 'https://api.spotify.com/v1/shows/24HhxNTGC8dF4aJ63ofzrT/episodes?limit=1'
 
-headers = {'Authorization':token}
-request = requests.get(url, headers=headers)
+# headers = {'Authorization':token}
+# request = requests.get(url, headers=headers)
 
-response = request.text
-print(response)
+# response = request.text
+# json = json.loads(response)
+# items = json['items'][0]
+
+# print('Description: ' + items['description'] + '\n')
+# print('Audio preview url: ' + items['audio_preview_url'] + '\n')
+# print('Duration (ms): ' + str(items['duration_ms']) + '\n')
+# print('Release date: ' + items['release_date'] + '\n')
+# print("Episode URL: " + items['external_urls']['spotify'] + '\n')
+
+
+# open to login / redirect page
+episode = '1Dz5ixbF2UsSpIuncAM31X'
+url = 'https://accounts.spotify.com/en/login?continue=https:%2F%2Fopen.spotify.com%2Fepisode%2F' + episode
+# episode_url = 'https://open.spotify.com/episode/1Dz5ixbF2UsSpIuncAM31X?si=cbsHD0mqQzqcFS7WfI9hyg'
+driver = webdriver.Chrome()
+driver.get(url)
+
+# log in to spotify
+driver.find_element_by_id('login-username').send_keys('trevp@seas.upenn.edu')
+driver.find_element_by_id ('login-password').send_keys('jarvislandry')
+button = driver.find_element_by_xpath('//button[text()="Log In"]')
+button.click()
+
+time.sleep(1)
+button = driver.find_element_by_xpath('//button[text()="PLAY"]')
+button.click()
 
 
 
@@ -27,15 +57,17 @@ print(response)
 
 
 
-# # erase cache and prompt for user permission
-# try:
-# 	token = util.prompt_for_user_token(username)
-# except:
-# 	os.remove(f".cache-{username}")
-# 	token = util.prompt_for_user_token(username)
 
-# # create our spotify object
-# spotify = spotipy.Spotify(auth=token)
 
-# user = spotify.current_user()
-# print(json.dumps(user, sort_keys=True, indent=4))
+
+
+
+
+
+
+
+
+
+
+
+
