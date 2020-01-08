@@ -35,9 +35,7 @@ os.system('clear')
 
 
 # open to login / redirect page
-episode = '1Dz5ixbF2UsSpIuncAM31X'
-url = 'https://accounts.spotify.com/en/login?continue=https:%2F%2Fopen.spotify.com%2Fepisode%2F' + episode
-# episode_url = 'https://open.spotify.com/episode/1Dz5ixbF2UsSpIuncAM31X?si=cbsHD0mqQzqcFS7WfI9hyg'
+url = 'https://accounts.spotify.com/en/login?continue=https:%2F%2Fopen.spotify.com%2Fshow%2F24HhxNTGC8dF4aJ63ofzrT'
 driver = webdriver.Chrome()
 driver.get(url)
 

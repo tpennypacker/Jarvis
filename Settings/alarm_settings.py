@@ -1,4 +1,4 @@
 song = 'brooklyn.mp3'
 
 hour = 11
-minute = 51
+minute = 42
