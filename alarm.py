@@ -9,5 +9,5 @@ def play():
 	elif (platform.system() == 'Linux'):
 		from pydub import AudioSegment
 		from pydub.playback import play
-		song = AudioSegment.from_mp3('Audio\ Files/'alarm_settings.song)
+		song = AudioSegment.from_mp3('Audio\ Files/' + alarm_settings.song)
 		play(song)
